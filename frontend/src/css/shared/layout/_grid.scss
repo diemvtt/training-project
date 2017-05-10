@@ -1,0 +1,58 @@
+//Grid system
+html {
+  background-color: $color-gray-lightest;
+  @include box-sizing(border-box);
+}
+
+*,
+*:before,
+*:after {
+  @include box-sizing(inherit);
+}
+
+.container {
+  @include container();
+}
+
+.container-full {
+  @include container();
+}
+
+.row {
+  @include clearfix;
+  @include row();
+}
+
+
+@for $i from 1 through $col-num {
+  .col-#{$i} {
+    float: left;
+    padding-right: $container-padding-size;
+    padding-left: $container-padding-size;
+    width: percentage(($i/$col-num));
+  }
+}
+
+@include mediaquery-md() {
+
+  @for $i from 1 through $col-num {
+    .col-md-#{$i} {
+      float: left;
+      padding-right: $container-padding-size;
+      padding-left: $container-padding-size;
+      width: percentage(($i/$col-num));
+    }
+  }
+
+}
+
+@include mediaquery-sm() {
+
+  @for $i from 1 through $col-num {
+    .col-sm-#{$i} {
+      display: inline-block;
+      width: percentage(($i / $col-num));
+    }
+  }
+
+}

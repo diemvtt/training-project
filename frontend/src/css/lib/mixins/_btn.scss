@@ -1,0 +1,40 @@
+
+@mixin btn() {
+  background-color: $color-gray-lighter;
+  background-image: none;
+  border:1px solid rgba(0,0,0,.05);
+  border-radius: 4px;
+  color: $color-white;
+  cursor: pointer;
+  display: inline-block;
+  font-size:$font-size-base;
+  min-width: 100px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: center;
+
+  &:last-child,
+  &:only-child {
+    margin-right:0;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+    background-color: lighten($color-gray-lighter,6%);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@mixin btn-lg() {
+  font-size: 18px;
+  padding: 15px;
+}
+
+@mixin btn-sm() {
+  font-size: 14px;
+  padding: 7px;
+}

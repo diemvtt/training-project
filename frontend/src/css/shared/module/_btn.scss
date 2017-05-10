@@ -1,0 +1,49 @@
+.btn {
+  @include btn();
+}
+
+.btn-primary {
+  background-color: $color-btn-primary;
+  border-color: $color-btn-primary-border;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color-btn-primary,6%);
+  }
+}
+
+.btn-success {
+  background-color: $color-btn-success;
+  border-color: $color-btn-success-border;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color-btn-success,6%);
+  }
+}
+
+.btn-danger {
+  background-color: $color-btn-danger;
+  border-color: $color-btn-danger-border;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color-btn-danger,6%);
+  }
+}
+
+.btn-lg {
+  @include btn-lg();
+}
+
+.btn-sm {
+  @include btn-sm();
+}
+
+.btn-full {
+  width: 100%;
+  margin-right: 0;
+}

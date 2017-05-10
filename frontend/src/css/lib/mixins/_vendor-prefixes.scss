@@ -1,0 +1,12 @@
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+@mixin appearance($appearance) {
+  -webkit-appearance: $appearance;
+     -moz-appearance: $appearance;
+      -ms-appearance: $appearance;
+          appearance: $appearance;
+}

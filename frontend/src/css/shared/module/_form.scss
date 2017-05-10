@@ -1,0 +1,26 @@
+
+.label {
+  display: inline-block;
+  min-width: 100px;
+  @extend %form-label;
+}
+
+.input {
+  @extend %form-input;
+}
+
+.input-lg {
+  @include input-lg();
+}
+
+.input-sm {
+  @include input-sm();
+}
+
+.input-full {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
