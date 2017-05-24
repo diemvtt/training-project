@@ -2,13 +2,9 @@
   <div class="container">
     <div class="entry-container">
       <h2>{{item.title}}</h2>
-      <div class="info">
-        <span>{{from_user}}</span><span>{{item.created_time}}</span>
-      </div>
-      <p>{{item.content}}</p>
-      <button type="button" class="btn btn-danger btn-sm">&#10084; {{like}} Like </button>
+      <p>{{item.body}}</p>
     </div>
-    <div class="comment-area">
+    <!-- <div class="comment-area">
       <h2>Comment</h2>
       <template v-for="comment in comments">
         <div class="comment">
@@ -24,18 +20,18 @@
           <button type="submit" name="button" class="btn btn-primary">Comment</button>
         </div>
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import {loadJSON} from '../js/common'
+import {loadJSON} from '../../js/common'
 
 export default {
   name: 'entry',
   data() {
     return {
-      id: this.$route.params.id,
+      id: this.$route.params.blog,
       item: {},
       from_user: '',
       like: 0,
@@ -47,11 +43,8 @@ export default {
   },
   methods: {
     initData() {
-      loadJSON('/data/blog.json',(response) => {
-        this.item = JSON.parse(response).blog.find(result => result.id == this.id);
-        this.from_user = this.item.from_user.name;
-        this.like = this.item.like.length;
-        this.comments = this.item.comments;
+      loadJSON('http://jsonplaceholder.typicode.com/posts',(response) => {
+        this.item = JSON.parse(response).find(result => result.id == this.id);
       });
     }
   }
@@ -62,22 +55,15 @@ export default {
 .container {
   margin-bottom:40px;
 }
+
 .entry-container {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size:15px;
   padding: 0 15px 40px;
 }
-.info {
-  color: #a6a6a6;
-  span {
-    &:not(:last-child) {
-      border-right: 1px #a6a6a6 solid;
-      margin-right:15px;
-      padding-right: 17px;
-    }
-  }
-}
+
 .comment-area {
   h2 {
     border-bottom: 1px solid #000;

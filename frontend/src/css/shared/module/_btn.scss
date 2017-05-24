@@ -1,49 +1,83 @@
+//
+// Buttons
+// --------------------------------------------------
+
+// Btn Default
+// --------------------------------------------------
+
 .btn {
   @include btn();
 }
 
-.btn-primary {
-  background-color: $color-btn-primary;
-  border-color: $color-btn-primary-border;
-
-  &:hover,
+.btn-blue {
+  background-color: $color-btn-blue;
+  &:hover {
+    background-color: lighten($color-btn-blue, 6%);
+  }
   &:active,
-  &:focus {
-    background-color: darken($color-btn-primary,6%);
+  &.active {
+    background-color: $color-btn-blue;
   }
 }
 
-.btn-success {
-  background-color: $color-btn-success;
-  border-color: $color-btn-success-border;
-
-  &:hover,
+.btn-light {
+  background-color: #dddddd;
+  color: #000;
+  &:hover {
+    background-color: lighten(#dddddd, 6%);
+  }
   &:active,
-  &:focus {
-    background-color: darken($color-btn-success,6%);
+  &.active {
+    background-color: $color-gray-lighter;
   }
 }
 
-.btn-danger {
-  background-color: $color-btn-danger;
-  border-color: $color-btn-danger-border;
 
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: darken($color-btn-danger,6%);
+//ゴーストボタン
+
+.btn-ghost-light {
+  @extend %btn-ghost;
+  border: 1px solid #000;
+  color: #000;
+  &:hover {
+    background-color: rgba(#fff, 0.5);
   }
 }
 
-.btn-lg {
-  @include btn-lg();
+.btn-ghost-dark {
+  @extend %btn-ghost;
+  border: 1px solid #fff;
+  color: #fff;
+  &:hover {
+    background-color: rgba(#fff, 0.2);
+  }
 }
 
-.btn-sm {
-  @include btn-sm();
+%btn-ghost {
+  background-color: transparent;
+  &:active,
+  &.active {
+    color: #fff;
+    background-color: $color-btn-blue;
+    border-color: rgba(0,0,0,0.1);
+  }
 }
 
-.btn-full {
-  width: 100%;
-  margin-right: 0;
+
+//Size
+.btn-lg    { @include btn-lg();   }
+.btn-sm    { @include btn-sm();   }
+.btn-wide  { @include btn-wide(); }
+.btn-full  { @include btn-full(); }
+.btn-block { @include btn-block(); }
+
+.btn-close {
+  background-color: #fff;
+  border-color: $color-gray-light;
+  color: $color-gray;
+
+  &:hover,
+  &:active {
+    background-color: $color-gray-lightest;
+  }
 }

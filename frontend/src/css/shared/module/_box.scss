@@ -1,0 +1,72 @@
+// Box
+// ---------------------------------------------------
+
+// Super class
+%box {
+  margin: $margin-v-subchapter 0;
+  padding: $margin-v-subchapter $col-gutter;
+  p {
+    font-size: 95%;
+    //line-height: $line-height-narrow;
+  }
+
+  > *:first-child,
+  > *:first-child > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child,
+  > *:last-child > *:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: $margin-v-subchapter;
+  }
+
+  .media-left,
+  .media-right {
+    .image {
+      img {
+        @include mediaquery-sm(){
+          max-width: 30vw;
+        }
+      }
+    }
+  }
+
+  &.padding-wide {
+    padding: ($margin-v-chapter+10) $margin-v-chapter;
+    @include mediaquery-sm() {
+      padding: $margin-v-chapter-sm $margin-v-chapter-sm;
+    }
+  }
+
+}
+
+.box-bordered {
+  @extend %box;
+  border: 4px solid $color-border-light;
+}
+
+.box-gray {
+  @extend %box;
+  background-color: $color-almost-white;
+}
+
+.box-white {
+  @extend %box;
+  background-color: #fff;
+}
+
+.box-attention {
+  @extend %box;
+  color: $color-attention;
+  background-color: $color-attention-bg;
+
+  h2,
+  h3 {
+    font-size: $font-size-large;
+    margin-bottom: $margin-v-paragraph;
+  }
+}

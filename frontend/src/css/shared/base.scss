@@ -1,8 +1,19 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
-//library
-@import '../lib/variables';
-@import '../lib/mixins';
+// library
+@import "../lib/variables";
+@import "../lib/mixins";
 
-//LAYOUT
+// ---------------------------------------------------
+// BASE
+@import "base/sanitize";
+@import "base/scaffolding";
+@import "base/print";
+
+// ---------------------------------------------------
+// LAYOUT
 @import "layout/grid";
+@import "layout/global-header";
+@import "layout/global-footer";
+@import "layout/breadcrumb";
+@import "layout/content-header";

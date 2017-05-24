@@ -1,0 +1,44 @@
+//
+// Links
+// --------------------------------------------------
+
+
+a[href^="tel:"],
+a[href^="mailto:"] {
+  color: $color-black;
+  &:hover {
+    color: $color-link-main;
+  }
+}
+
+// External links
+a[target="_blank"],
+a[target="new"] {
+
+}
+
+.link-external {
+  @extend %link-external;
+}
+
+// tap-highlight
+.tap-highlight {
+  @extend %tap-highlight;
+}
+
+// link-to-all
+.link-to-all {
+  display: inline-block;
+  background: url("/img/shared/icon_grid_blue.png") left center no-repeat;
+  background-size: 13px 13px;
+  padding-left: 18px;
+  color: $color-black;
+  &:hover {
+    @include opacity(0.8);
+    text-decoration: none;
+  }
+  &:active {
+    @include opacity(1);
+    color: $color-link-main;
+  }
+}
